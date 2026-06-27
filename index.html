@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desktop Cat - Download</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #0f0f0f;
+    color: #e0e0e0;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Animated background */
+  .bg {
+    position: fixed; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(120,120,120,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(150,150,150,0.06) 0%, transparent 50%);
+  }
+
+  .container {
+    position: relative; z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 60px 24px;
+    text-align: center;
+  }
+
+  /* Cat preview */
+  .cat-preview {
+    width: 200px; height: 160px;
+    margin: 0 auto 32px;
+    position: relative;
+  }
+  .cat-preview canvas {
+    width: 200px; height: 160px;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.5));
+  }
+
+  h1 {
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #ccc 0%, #fff 50%, #aaa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+  }
+
+  .tagline {
+    font-size: 18px;
+    color: #888;
+    margin-bottom: 40px;
+    font-weight: 400;
+  }
+
+  /* Features */
+  .features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+    text-align: left;
+  }
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    transition: border-color 0.2s;
+  }
+  .feature:hover { border-color: #444; }
+  .feature-icon { font-size: 22px; flex-shrink: 0; }
+  .feature-text {
+    font-size: 14px;
+    color: #aaa;
+    line-height: 1.4;
+  }
+  .feature-text strong { color: #ddd; }
+
+  /* Download button */
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 40px;
+    background: #fff;
+    color: #111;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: inherit;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 4px 20px rgba(255,255,255,0.1);
+  }
+  .download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(255,255,255,0.15);
+  }
+  .download-btn:active { transform: translateY(0); }
+  .download-btn svg { width: 20px; height: 20px; }
+
+  .meta {
+    margin-top: 16px;
+    font-size: 12px;
+    color: #555;
+  }
+
+  .footer {
+    margin-top: 60px;
+    font-size: 12px;
+    color: #444;
+  }
+  .footer a { color: #666; text-decoration: none; }
+  .footer a:hover { color: #888; }
+
+  /* Paw prints decoration */
+  .paws {
+    position: fixed;
+    bottom: 20px; right: 20px;
+    font-size: 24px;
+    opacity: 0.1;
+    transform: rotate(-20deg);
+  }
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+
+<div class="container">
+  <!-- Live cat preview -->
+  <div class="cat-preview">
+    <canvas id="preview-cat" width="400" height="280"></canvas>
+  </div>
+
+  <h1>Desktop Cat</h1>
+  <p class="tagline">A sassy cat that lives on your screen.</p>
+
+  <div class="features">
+    <div class="feature">
+      <span class="feature-icon">🐾</span>
+      <div class="feature-text"><strong>Walks around your desktop</strong> — roams freely on top of all your windows</div>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">🫳</span>
+      <div class="feature-text"><strong>Pick up & drop</strong> — drag the cat around, throw it, watch it bounce with gravity</div>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">💬</span>
+      <div class="feature-text"><strong>Chat with your cat</strong> — it responds with sassy cat logic to whatever you say</div>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">😴</span>
+      <div class="feature-text"><strong>Pet, feed, play, sleep</strong> — interactive actions with unique animations</div>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">👀</span>
+      <div class="feature-text"><strong>Watches you</strong> — the cat's eyes follow your cursor everywhere</div>
+    </div>
+  </div>
+
+  <a href="Desktop Cat 1.0.0.exe" class="download-btn" download>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <polyline points="7 10 12 15 17 10"/>
+      <line x1="12" y1="15" x2="12" y2="3"/>
+    </svg>
+    Download for Windows
+  </a>
+  <p class="meta">v1.0.0 &middot; 73 MB &middot; Windows 10/11 &middot; No install needed, just run the .exe</p>
+
+  <div class="footer">
+    Made with cat energy &middot; <a href="https://github.com">Source on GitHub</a>
+  </div>
+</div>
+
+<div class="paws">🐾 🐾 🐾</div>
+
+<!-- Animated cat preview on the page -->
+<script>
+const canvas = document.getElementById('preview-cat');
+const ctx = canvas.getContext('2d');
+let frame = 0, tailAngle = 0, blinkTimer = 0, isBlinking = false, breathPhase = 0;
+
+const C = {
+  fur: '#9E9E9E', furLight: '#B0B0B0', furDark: '#707070',
+  stripe: '#4A4A4A', belly: '#C8C8C8', white: '#E8E0D8',
+  nose: '#A07070', earInner: '#B89898', eye: '#556B2F',
+};
+
+function drawPreviewCat() {
+  ctx.clearRect(0, 0, 400, 280);
+  frame++;
+  breathPhase += 0.025;
+  const sy = 1 + Math.sin(breathPhase) * 0.008;
+
+  ctx.save();
+  ctx.translate(200, 255);
+  ctx.scale(1, sy);
+  ctx.translate(-200, -255);
+
+  // Tail
+  tailAngle += 0.03;
+  const tSwing = Math.sin(tailAngle) * 10;
+  ctx.save();
+  ctx.translate(55, 140);
+  ctx.rotate((tSwing + 20) * Math.PI / 180);
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.bezierCurveTo(-20, -15, -55, -40, -50, -80);
+  ctx.bezierCurveTo(-48, -95, -40, -100, -35, -95);
+  ctx.bezierCurveTo(-40, -80, -45, -35, 5, 5);
+  ctx.closePath();
+  ctx.fillStyle = C.fur; ctx.fill();
+  ctx.restore();
+
+  // Body
+  ctx.beginPath();
+  ctx.ellipse(200, 190, 65, 55, 0, 0, Math.PI * 2);
+  ctx.fillStyle = C.fur; ctx.fill();
+  ctx.beginPath();
+  ctx.ellipse(200, 200, 40, 45, 0, 0, Math.PI * 2);
+  ctx.fillStyle = C.belly; ctx.fill();
+
+  // Paws
+  ctx.beginPath(); ctx.ellipse(160, 240, 16, 10, -0.1, 0, Math.PI*2);
+  ctx.fillStyle = C.white; ctx.fill();
+  ctx.beginPath(); ctx.ellipse(160, 228, 12, 16, 0, 0, Math.PI*2);
+  ctx.fillStyle = C.fur; ctx.fill();
+  ctx.beginPath(); ctx.ellipse(240, 240, 16, 10, 0.1, 0, Math.PI*2);
+  ctx.fillStyle = C.white; ctx.fill();
+  ctx.beginPath(); ctx.ellipse(240, 228, 12, 16, 0, 0, Math.PI*2);
+  ctx.fillStyle = C.fur; ctx.fill();
+
+  // Head
+  const hx = 200, hy = 100;
+  ctx.beginPath(); ctx.arc(hx, hy, 52, 0, Math.PI * 2);
+  ctx.fillStyle = C.fur; ctx.fill();
+
+  // Ears
+  ctx.beginPath(); ctx.moveTo(hx-38,hy-25); ctx.lineTo(hx-48,hy-72); ctx.lineTo(hx-18,hy-38); ctx.closePath();
+  ctx.fillStyle = C.fur; ctx.fill();
+  ctx.beginPath(); ctx.moveTo(hx-36,hy-30); ctx.lineTo(hx-44,hy-64); ctx.lineTo(hx-22,hy-38); ctx.closePath();
+  ctx.fillStyle = C.earInner; ctx.fill();
+  ctx.beginPath(); ctx.moveTo(hx+38,hy-25); ctx.lineTo(hx+48,hy-72); ctx.lineTo(hx+18,hy-38); ctx.closePath();
+  ctx.fillStyle = C.fur; ctx.fill();
+  ctx.beginPath(); ctx.moveTo(hx+36,hy-30); ctx.lineTo(hx+44,hy-64); ctx.lineTo(hx+22,hy-38); ctx.closePath();
+  ctx.fillStyle = C.earInner; ctx.fill();
+
+  // Tabby M
+  ctx.strokeStyle = C.stripe; ctx.lineWidth = 3; ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.moveTo(hx-18,hy-20); ctx.quadraticCurveTo(hx-8,hy-35,hx,hy-22);
+  ctx.quadraticCurveTo(hx+8,hy-35,hx+18,hy-20); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(hx,hy-22); ctx.lineTo(hx,hy-10); ctx.stroke();
+
+  // Muzzle
+  ctx.beginPath(); ctx.ellipse(hx,hy+15,28,22,0,0,Math.PI*2);
+  ctx.fillStyle = C.furLight; ctx.fill();
+  ctx.beginPath(); ctx.ellipse(hx,hy+18,20,16,0,0,Math.PI*2);
+  ctx.fillStyle = C.belly; ctx.fill();
+
+  // Eyes — track mouse
+  blinkTimer++;
+  if (blinkTimer > 140 && !isBlinking) isBlinking = true;
+  if (blinkTimer > 148) { isBlinking = false; blinkTimer = 0; }
+
+  const lEx = hx-18, rEx = hx+18, eY = hy+2;
+
+  if (isBlinking) {
+    ctx.beginPath(); ctx.moveTo(lEx-6,eY); ctx.lineTo(lEx+6,eY);
+    ctx.strokeStyle='#333'; ctx.lineWidth=2.5; ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(rEx-6,eY); ctx.lineTo(rEx+6,eY); ctx.stroke();
+  } else {
+    // Eyes follow mouse
+    const rect = canvas.getBoundingClientRect();
+    const mx = (lastMX - rect.left) / (rect.width||1) * 400;
+    const my = (lastMY - rect.top) / (rect.height||1) * 280;
+
+    function drawEye(ex2) {
+      ctx.beginPath(); ctx.ellipse(ex2,eY,7,8,0,0,Math.PI*2);
+      ctx.fillStyle=C.eye; ctx.fill();
+      ctx.strokeStyle='#333'; ctx.lineWidth=1.8; ctx.stroke();
+      const dx=mx-ex2, dy=my-eY, d=Math.sqrt(dx*dx+dy*dy)||1;
+      const px=(dx/d)*Math.min(3,d*0.015), py=(dy/d)*Math.min(2,d*0.01);
+      ctx.beginPath(); ctx.ellipse(ex2+px,eY+py,2.5,7,0,0,Math.PI*2);
+      ctx.fillStyle='#222'; ctx.fill();
+      ctx.beginPath(); ctx.arc(ex2+px+2,eY+py-3,1.8,0,Math.PI*2);
+      ctx.fillStyle='#fff'; ctx.fill();
+    }
+    drawEye(lEx); drawEye(rEx);
+  }
+
+  // Blush
+  ctx.beginPath(); ctx.ellipse(hx-32,hy+12,7,4,0,0,Math.PI*2);
+  ctx.fillStyle='rgba(255,150,150,0.25)'; ctx.fill();
+  ctx.beginPath(); ctx.ellipse(hx+32,hy+12,7,4,0,0,Math.PI*2); ctx.fill();
+
+  // Nose
+  ctx.beginPath(); ctx.moveTo(hx,hy+16); ctx.lineTo(hx-5,hy+22); ctx.lineTo(hx+5,hy+22); ctx.closePath();
+  ctx.fillStyle=C.nose; ctx.fill();
+
+  // Mouth
+  ctx.beginPath(); ctx.moveTo(hx,hy+23); ctx.quadraticCurveTo(hx-8,hy+30,hx-12,hy+27);
+  ctx.strokeStyle='#666'; ctx.lineWidth=1.5; ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(hx,hy+23); ctx.quadraticCurveTo(hx+8,hy+30,hx+12,hy+27); ctx.stroke();
+
+  // Whiskers
+  ctx.lineWidth=1; ctx.strokeStyle='#ccc';
+  ctx.beginPath();
+  ctx.moveTo(hx-20,hy+18); ctx.lineTo(hx-55,hy+10);
+  ctx.moveTo(hx-20,hy+22); ctx.lineTo(hx-58,hy+22);
+  ctx.moveTo(hx+20,hy+18); ctx.lineTo(hx+55,hy+10);
+  ctx.moveTo(hx+20,hy+22); ctx.lineTo(hx+58,hy+22);
+  ctx.stroke();
+
+  ctx.restore();
+  requestAnimationFrame(drawPreviewCat);
+}
+
+let lastMX = 200, lastMY = 140;
+document.addEventListener('mousemove', (e) => { lastMX = e.clientX; lastMY = e.clientY; });
+drawPreviewCat();
+</script>
+</body>
+</html>
